@@ -1,0 +1,82 @@
+
+
+	sudo apt install vim 
+pre：https://blog.csdn.net/u011897411/article/details/89742008  需要调整swap内存
+       https://blog.csdn.net/QQ2010899751/article/details/82890142
+
+1.    https://computingforgeeks.com/install-postgresql-11-on-ubuntu-linux/    安装postgresql 11
+
+	/etc/postgresql/9.1/main/postgresql.conf
+
+
+2.    https://www.pgadmin.org/download/pgadmin-4-apt/   下载pgadmin4
+
+3.调用bash的时候出现curl command not found
+
+   解决办法：
+
+   sudo apt-get install curl
+
+
+4.https://zh.codepre.com/ubuntu-3208.html  ubuntu安装postgis2.5
+
+  https://zh.codepre.com/debian-8384.html   debian安装postgis2.5
+
+
+5.  https://github.com/json-c/json-c 安装json-c   安装json-c 和cmake
+
+
+
+http://support.ptc.com/help/thingworx_hc/thingworx_8_hc/zh_CN/index.html#page/ThingWorx/Help/Installation/Installation/install_and_configure_postgresql_Ubuntu.html  设置postgresql
+
+6. 安装GSL  https://gist.github.com/TysonRayJones/af7bedcdb8dc59868c7966232b4da903#ubuntu
+
+=====================================================================================================================================
+
+安装MobilityDB  https://gist.github.com/TysonRayJones/af7bedcdb8dc59868c7966232b4da903
+
+如果按照第一步的安装 可能会报错  可以用 sudo apt install postgresql-server-dev-XX   XX是你的Postgresql版本
+
+
+=====================================================================================================================================
+
+Mobility 虚拟机从这里开始安装
+
+7.  安装 pgrouting   1.  https://github.com/pgRouting/pgrouting/wiki/Download:-Debian-and-Ubuntu                sudo apt install postgresql-11-pgrouting    推荐
+	              2.  git clone https://github.com/pgRouting/pgrouting
+
+8.  安装 osm2pgrouting  方法1	 git clone https://github.com/pgRouting/osm2pgrouting
+		        方法2	https://zoomadmin.com/HowToInstall/UbuntuPackage/osm2pgrouting
+		        方法3          sudo apt install osm2pgrouting 推荐
+使用 osm2pgrouting	    ->   fe_sendauth: no password supplied
+解决方法一   1.  sudo vim  pg_hba.conf
+          2. md5 改为 trust 
+          3.  sudo service postgresql restart 
+解决方法二  osm2pgrouting -h localhost -p 5432 -U postgres -W postgres -f generatorHome/brussels.osm --dbname brussels -c generatorHome/mapconfig_brussels.xml
+
+9.安装  osm2pgsql  https://github.com/openstreetmap/osm2pgsql
+		方法：sudo apt install osm2pgsql   推荐
+
+	1. git clone git://github.com/openstreetmap/osm2pgsql.git
+	2. sudo apt-get install make cmake g++ libboost-dev libboost-system-dev \
+  libboost-filesystem-dev libexpat1-dev zlib1g-dev \
+  libbz2-dev libpq-dev libproj-dev lua5.3 liblua5.3-dev pandoc
+
+
+10.  安装qgis显示数据  https://qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu
+
+ ==========================================================================
+
+part 2 需要更改的
+osm2pgrouting -h localhost -p 5432 -U postgres -W postgres -f generatorHome/brussels.osm --dbname brussels -c generatorHome/mapconfig_brussels.xml
+
+sudo osm2pgsql -c -H localhost -P 5432 -U postgres -W  -d brussels generatorHome/brussels.osm
+
+
+
+sudo docker cp /home/mca/Desktop/berlinmod_data    mobilitydb:/usr/local/src
+
+
+
+
+
