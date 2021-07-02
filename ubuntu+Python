@@ -1,0 +1,40 @@
+Ubuntu 20.04  自动安装Python3.7 
+
+                   安装VScode
+
+	       安装postgresql13
+	   
+
+
+二、安装python连接postgresql的插件psycopg2
+
+1)安装libpq-dev
+
+sudo apt-get install libpq-dev python-dev
+
+2)pip install psycopg2
+
+
+
+三、本机如何连接vmware虚拟机中的数据库
+
+ tips: 要关闭防火墙
+1）1.将虚拟机 网络适配器设置为 NAT模式
+
+2）2.在虚拟机中使用命令 ip addr show获取ip地址
+
+
+四、java连接 Postgresql jdbc下载
+
+https://jdbc.postgresql.org/download.html
+
+java8以上使用JDBC 4.2版本
+
+
+五、如何删除csv、txt中空行
+
+查找“^[\s]*\n”，替换为空，就等于删除。
+
+
+六、 使用postgres在用户界面调用sql脚本
+psql -d test -U postgres -f  /var/lib/postgresql/Desktop/T-drive_update.sql
