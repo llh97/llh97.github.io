@@ -1,0 +1,34 @@
+宿主机：Win10	虚拟机：Ubuntu 20.04
+
+第一项：安装jdk14 和Tomcat 9
+
+		
+	一、
+		安装Apache Tomcat 9
+		运行系统更新
+		1. sudo apt update
+
+		在Ubuntu 20.04上安装OpenJDK 14
+		2. sudo apt install openjdk-14-jre
+		3. java -version
+
+		下载Apache Tomcat二进制发行版
+		wget  https://downloads.apache.org/tomcat/tomcat-9/v9.0.46/bin/apache-tomcat-9.0.46.tar.gz
+		tar xzf apache-tomcat-9.0.46.tar.gz 
+
+	二、
+		Tomcat配置步骤：
+
+		1.cd命令进入Tomcat安装路径的bin下
+
+		2.sudo chmod 755*.sh 输入appleID密码获得相关权限
+
+		3.sudo sh ./startup.sh启动Tomcat
+
+		4.sh ./shutdown.sh关闭 tomcat 
+
+第二项：安装postgresql 11 和postgis2.5
+
+第三项：局域网电脑访问另一台电脑中的VMware虚拟机的Tomcat中web项目
+
+	https://www.jianshu.com/p/786bfbccb0a6
